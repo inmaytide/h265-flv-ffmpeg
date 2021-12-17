@@ -1,0 +1,73 @@
+#!/bin/bash
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+
+./configure --prefix=/usr/local/ffmpeg \
+      --enable-openssl \
+      --enable-version3 \
+      --cc=clang \
+      --target-os=linux \
+      --enable-gpl \
+      --disable-ffplay \
+      --disable-ffprobe \
+      --disable-doc \
+      --disable-debug \
+      --disable-shared \
+      --disable-stripping \
+      --enable-nonfree \
+      --enable-static \
+      --enable-thumb \
+      --enable-neon \
+      --enable-zlib \
+      --disable-indevs \
+      --disable-outdevs \
+      --disable-bsfs \
+      --disable-protocols \
+      --disable-filters \
+      --disable-encoders \
+      --disable-decoders \
+      --disable-muxers \
+      --disable-demuxers \
+      --disable-parsers \
+      --enable-protocol=file \
+      --enable-protocol=hls \
+      --enable-protocol=rtmp \
+      --enable-protocol=http \
+      --enable-protocol=https \
+      --disable-encoders \
+      --enable-encoder=aac \
+      --enable-encoder=libx264 \
+      --enable-encoder=mjpeg \
+      --enable-encoder=png \
+      --enable-libx264 \
+      --enable-encoder=libx265 \
+      --enable-libx265 \
+      --disable-decoders \
+      --enable-decoder=mjpeg \
+      --enable-decoder=png \
+      --enable-decoder=aac \
+      --enable-decoder=h264 \
+      --enable-decoder=hevc \
+      --disable-demuxers \
+      --enable-demuxer=aac \
+      --enable-demuxer=mov \
+      --enable-demuxer=mpegts \
+      --enable-demuxer=flv \
+      --enable-demuxer=h264 \
+      --enable-demuxer=hevc \
+      --enable-demuxer=hls \
+      --enable-demuxer=rtsp \
+      --enable-demuxer=image2 \
+      --disable-muxers \
+      --enable-muxer=h264 \
+      --enable-muxer=flv \
+      --enable-muxer=f4v \
+      --enable-muxer=mp4 \
+      --enable-muxer=image2 \
+      --enable-libopenjpeg \
+      --enable-swscale \
+      --enable-swscale-alpha \
+      --enable-filter=scale 
+
+make clean
+make -j 4
+make install
